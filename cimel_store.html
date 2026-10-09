@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#c9edff">
+<title>cimel store — am premium</title>
+<style>
+:root{--blue:#bfe8ff;--blue2:#eaf8ff;--ink:#155d7c;--muted:#648395;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#183746;background:linear-gradient(180deg,#d8f2ff 0,#f7fcff 420px,#fff 100%);min-height:100vh}
+header{height:70px;background:#fff;border-bottom:1px solid #e2f4fc;display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:sticky;top:0;z-index:5}
+.logo{font-size:22px;font-weight:850;letter-spacing:-.8px;color:var(--ink)}.logo span{color:#75bfe6}
+.pill{font-size:12px;color:var(--ink);background:var(--blue2);border:1px solid #c5eaff;padding:8px 11px;border-radius:99px}
+main{max-width:960px;margin:auto;padding:24px 16px 50px}
+.hero{text-align:center;padding:28px 10px 22px}.eyebrow{display:inline-block;padding:7px 12px;background:#fff;border:1px solid #ccecff;border-radius:99px;font-size:12px;font-weight:750;color:#287da2}
+h1{font-size:clamp(32px,7vw,48px);line-height:1.06;letter-spacing:-1.7px;margin:17px 0 10px;color:#164f6a}
+.hero p{color:#607e8d;max-width:440px;margin:0 auto;line-height:1.65;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:18px}
+.card{background:#fff;border:1px solid #d8effa;border-radius:22px;padding:20px;box-shadow:0 12px 30px #4a9bc012}
+.product{display:flex;flex-direction:column;min-height:250px}
+.iconbox{height:58px;width:58px;border-radius:18px;background:linear-gradient(145deg,#dff5ff,#bce8ff);display:grid;place-items:center;font-size:28px}
+.tag{font-size:11px;font-weight:800;color:#2584aa;letter-spacing:1px;margin-top:19px}
+h2{font-size:20px;margin:6px 0;color:#194d64}
+.desc{font-size:13px;color:#6b8490;line-height:1.55}
+.price{font-size:29px;font-weight:850;letter-spacing:-1px;margin:17px 0 12px;color:#145d7c}.price small{font-size:13px;letter-spacing:0;color:#76919f;font-weight:600}
+.btn{display:block;border:0;border-radius:13px;background:#167ba3;color:white;padding:13px 15px;font-weight:800;font-size:14px;text-align:center;text-decoration:none;cursor:pointer;width:100%;transition:.15s}
+.btn:active{transform:scale(.98)}.btn.secondary{background:#e8f7ff;color:#176786;border:1px solid #c7eafa}
+.section-title{font-size:22px;letter-spacing:-.5px;margin:30px 0 6px;color:#194d64}.section-sub{font-size:13px;color:#6b8490;margin:0 0 14px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.step{padding:15px;border-radius:16px;background:#f4fbff;border:1px solid #e0f3fc}.num{font-weight:900;color:#278bb4;font-size:12px}.step strong{display:block;font-size:13px;margin:7px 0}.step p{font-size:12px;line-height:1.5;color:#718b98;margin:0}
+.paybox{margin-top:18px;background:#fff;border:1px solid #d8effa;border-radius:22px;padding:20px}.paybox textarea{width:100%;min-height:105px;resize:vertical;border:1px solid #d6eaf4;border-radius:12px;padding:12px;font:12px/1.5 ui-monospace,monospace;color:#315667;background:#f8fcff;overflow-wrap:anywhere}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.notice{font-size:12px;line-height:1.6;color:#718b98;background:#f2faff;border-radius:12px;padding:12px;margin-top:12px}
+footer{text-align:center;font-size:12px;color:#8aa0ab;padding:24px 10px}
+.toast{font-size:12px;color:#176786;min-height:18px;margin-top:8px}
+@media(max-width:560px){header{padding:0 15px}.grid{grid-template-columns:1fr}.product{min-height:unset}.steps{grid-template-columns:1fr}.step{display:flex;gap:12px;align-items:flex-start}.num{padding-top:2px}.actions{grid-template-columns:1fr}.hero{padding-top:22px}}
+</style>
+</head>
+<body>
+<header><div class="logo">cimel <span>store</span></div><div class="pill">♡ am premium</div></header>
+<main>
+<section class="hero">
+<div class="eyebrow">✦ DIGITAL PRODUCT STORE ✦</div>
+<h1>premium simpel,<br>harga ramah.</h1>
+<p>selamat datang di cimel store! pilih paket am premium kamu, lalu ikuti petunjuk pemesanan dan pembayaran.</p>
+</section>
+
+<section class="grid" aria-label="produk">
+<article class="card product">
+<div class="iconbox">☁️</div><div class="tag">AM PREMIUM</div>
+<h2>am sharing</h2><div class="desc">akses premium mode sharing.</div>
+<div class="price">Rp2.000 <small>/ paket</small></div>
+<button class="btn" onclick="order()">pesan sekarang ↗</button>
+</article>
+<article class="card product">
+<div class="iconbox">💎</div><div class="tag">CARA PESAN</div>
+<h2>mudah & praktis</h2><div class="desc">buat pesanan, siapkan pembayaran, lalu kirim bukti pembayaran kepada admin.</div>
+<div style="margin-top:auto;padding-top:18px"><button class="btn secondary" onclick="showPayment()">lihat pembayaran ↓</button></div>
+</article>
+</section>
+
+<section id="payment">
+<h2 class="section-title">pembayaran</h2>
+<p class="section-sub">gunakan kode QRIS yang kamu berikan sebagai dasar pembayaran.</p>
+<div class="paybox">
+<label for="qris" style="display:block;font-size:13px;font-weight:800;margin-bottom:9px">kode QRIS</label>
+<textarea id="qris" readonly spellcheck="false">00020101021126570011ID.DANA.WWW011893600915302424301102090242430110303UMI51440014ID.CO.QRIS.WWW0215ID10265133930110303UMI5204654053033605802ID5911cimel store6015Kabupaten Jomba6105614856304C0A4</textarea>
+<div class="actions">
+<button class="btn" onclick="copyQris()">salin kode QRIS</button>
+<a class="btn secondary" href="https://qris-dinamis-ten.vercel.app/" target="_blank" rel="noopener">buka QRIS dinamis ↗</a>
+</div>
+<div id="toast" class="toast" aria-live="polite"></div>
+<div class="notice">catatan: kode yang kamu kirim tampak seperti QRIS statis, bukan QRIS dinamis dengan nominal otomatis. buka generator QRIS di atas dan ikuti petunjuk situsnya untuk membuat nominal Rp2.000. pastikan nama merchant dan nominal benar sebelum membayar.</div>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">cara order</h2><p class="section-sub">ikuti tiga langkah ini yaa.</p>
+<div class="steps">
+<div class="step"><div class="num">01</div><div><strong>pilih paket</strong><p>tekan tombol pesan sekarang untuk menyalin format pesanan.</p></div></div>
+<div class="step"><div class="num">02</div><div><strong>bayar sesuai nominal</strong><p>cek nama merchant dan total pembayaran sebelum konfirmasi.</p></div></div>
+<div class="step"><div class="num">03</div><div><strong>konfirmasi ke admin</strong><p>kirim format pesanan dan bukti pembayaran ke kontak admin cimel store.</p></div></div>
+</div>
+</section>
+<footer>© <span id="year"></span> cimel store · terima kasih sudah mampir ♡</footer>
+</main>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+function showPayment(){document.getElementById('payment').scrollIntoView({behavior:'smooth',block:'start'});}
+async function copyQris(){
+ const value=document.getElementById('qris').value;
+ try{await navigator.clipboard.writeText(value);document.getElementById('toast').textContent='kode QRIS berhasil disalin.';}
+ catch(e){const t=document.getElementById('qris');t.focus();t.select();document.execCommand('copy');document.getElementById('toast').textContent='kode QRIS dipilih untuk disalin.';}
+}
+async function order(){
+ const msg='halo cimel store, aku mau pesan am sharing Rp2.000.\\n\\nnama pembeli: \\njumlah paket: 1\\nmetode pembayaran: QRIS';
+ try{await navigator.clipboard.writeText(msg);alert('format pesanan berhasil disalin! kirim ke admin cimel store ya.\\n\\n'+msg);}
+ catch(e){prompt('salin format pesanan ini lalu kirim ke admin cimel store:',msg);}
+}
+</script>
+</body>
+</html>
